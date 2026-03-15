@@ -18,14 +18,40 @@ export const SubmitButton = () => {
 
     const result = await response.json();
 
+    console.log("Pipeline Analysis:", result);
+
     alert(
-      `Nodes: ${result.num_nodes}\nEdges: ${result.num_edges}\nIs DAG: ${result.is_dag}`,
+      `Pipeline Analysis
+
+Nodes: ${result.num_nodes}
+Edges: ${result.num_edges}
+Is DAG: ${result.is_dag ? "Yes" : "No"}`,
     );
   };
 
   return (
-    <div style={{ marginTop: 20, textAlign: "center" }}>
-      <button onClick={handleSubmit}>Submit</button>
+    <div
+      style={{
+        position: "absolute",
+        bottom: 20,
+        left: "50%",
+        transform: "translateX(-50%)",
+      }}
+    >
+      <button
+        onClick={handleSubmit}
+        style={{
+          padding: "10px 20px",
+          borderRadius: 8,
+          border: "none",
+          background: "#2563eb",
+          color: "white",
+          fontWeight: 500,
+          cursor: "pointer",
+        }}
+      >
+        Analyze Pipeline
+      </button>
     </div>
   );
 };
