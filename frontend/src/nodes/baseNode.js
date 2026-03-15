@@ -27,13 +27,27 @@ export const BaseNode = ({ title, inputs = [], outputs = [], children }) => {
 
       {/* Inputs */}
       {inputs.map((input, index) => (
-        <Handle
-          key={input}
-          type="target"
-          position={Position.Left}
-          id={input}
-          style={{ top: 50 + index * 25 }}
-        />
+        <React.Fragment key={input}>
+          <Handle
+            type="target"
+            position={Position.Left}
+            id={input}
+            style={{
+              top: 50 + index * 25,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              left: -60,
+              top: 44 + index * 25,
+              fontSize: 12,
+              color: "#555",
+            }}
+          >
+            {input}
+          </div>
+        </React.Fragment>
       ))}
 
       {/* Outputs */}
