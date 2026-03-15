@@ -5,24 +5,25 @@ export const BaseNode = ({ title, inputs = [], outputs = [], children }) => {
   return (
     <div
       style={{
-        width: 200,
-        border: "1px solid #444",
-        borderRadius: 8,
-        padding: 10,
-        background: "#1e1e1e",
-        color: "white",
-        fontSize: 12,
+        minWidth: 220,
+        border: "1px solid #e2e8f0",
+        borderRadius: 12,
+        padding: 12,
+        background: "white",
+        color: "#111827",
+        fontSize: 13,
+        boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
+        fontFamily: "Inter, system-ui, sans-serif",
       }}
     >
       {/* Title */}
       <div
         style={{
-          fontWeight: "bold",
-          marginBottom: 8,
+          fontWeight: 600,
+          marginBottom: 10,
+          fontSize: 14,
         }}
-      >
-        {title}
-      </div>
+      ></div>
 
       {/* Inputs */}
       {inputs.map((input, index) => (
@@ -31,7 +32,7 @@ export const BaseNode = ({ title, inputs = [], outputs = [], children }) => {
           type="target"
           position={Position.Left}
           id={input}
-          style={{ top: 40 + index * 20 }}
+          style={{ top: 50 + index * 25 }}
         />
       ))}
 
@@ -47,7 +48,7 @@ export const BaseNode = ({ title, inputs = [], outputs = [], children }) => {
       ))}
 
       {/* Custom UI */}
-      <div style={{ marginTop: 10 }}>{children}</div>
+      <div style={{ marginTop: 8 }}>{children}</div>
     </div>
   );
 };
